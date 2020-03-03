@@ -1,0 +1,21 @@
+version: '2'
+services:
+  jboth-app:
+    image: jboth
+    environment:
+      - _JAVA_OPTIONS=-Xmx512m -Xms256m
+      - SPRING_PROFILES_ACTIVE=prod,swagger
+      - MANAGEMENT_METRICS_EXPORT_PROMETHEUS_ENABLED=true
+      - SPRING_DATASOURCE_URL=jdbc:mysql://jboth-mysql:3306/jboth?useUnicode=true&characterEncoding=utf8&useSSL=false&createDatabaseIfNotExist=true
+      - JHIPSTER_CACHE_REDIS_SERVER=redis://jboth-redis:6379
+      - JHIPSTER_SLEEP=30 # gives time for other services to boot before the application
+    ports:
+      - 8080:8080
+  jboth-mysql:
+    extends:
+      file: mysql.yml
+      service: jboth-mysql
+  jboth-redis:
+    extends:
+      file: redis.yml
+      service: jboth-redis
