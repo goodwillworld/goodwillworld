@@ -48,6 +48,18 @@ public class CacheConfiguration {
             createCache(cm, com.jboth.domain.User.class.getName() + ".authorities", jcacheConfiguration);
             createCache(cm, com.jboth.domain.PersistentToken.class.getName(), jcacheConfiguration);
             createCache(cm, com.jboth.domain.User.class.getName() + ".persistentTokens", jcacheConfiguration);
+            createCache(cm, com.jboth.domain.Product.class.getName(), jcacheConfiguration);
+            createCache(cm, com.jboth.domain.ProductCategory.class.getName(), jcacheConfiguration);
+            createCache(cm, com.jboth.domain.ProductCategory.class.getName() + ".products", jcacheConfiguration);
+            createCache(cm, com.jboth.domain.Customer.class.getName(), jcacheConfiguration);
+            createCache(cm, com.jboth.domain.Customer.class.getName() + ".orders", jcacheConfiguration);
+            createCache(cm, com.jboth.domain.ProductOrder.class.getName(), jcacheConfiguration);
+            createCache(cm, com.jboth.domain.ProductOrder.class.getName() + ".orderItems", jcacheConfiguration);
+            createCache(cm, com.jboth.domain.ProductOrder.class.getName() + ".invoices", jcacheConfiguration);
+            createCache(cm, com.jboth.domain.OrderItem.class.getName(), jcacheConfiguration);
+            createCache(cm, com.jboth.domain.Invoice.class.getName(), jcacheConfiguration);
+            createCache(cm, com.jboth.domain.Invoice.class.getName() + ".shipments", jcacheConfiguration);
+            createCache(cm, com.jboth.domain.Shipment.class.getName(), jcacheConfiguration);
             // jhipster-needle-redis-add-entry
         };
     }
